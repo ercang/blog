@@ -1,7 +1,6 @@
 baseURL = "www.example.com"
 languageCode = "en-us"
 title = "Hugo Whisper Theme"
-themesDir = "../.."
 theme = "hugo-whisper-theme"
 
 pygmentsCodeFences = true
