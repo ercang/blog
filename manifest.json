@@ -1,6 +1,6 @@
 {
-  "name": "egercek.com",
-  "short_name": "egercek.com",
+  "name": "Programming Blog",
+  "short_name": "Programming Blog",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
