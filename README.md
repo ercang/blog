@@ -1,3 +1,3 @@
-# Blog
+# Hello
 
-Repository for my personal blog.
+This repository contains the source for my personal blog. Nothing exciting here :)

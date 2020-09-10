@@ -2,7 +2,7 @@
 
 #baseURL = "https://ercang.github.io/blog/"
 baseURL = "http://egercek.com/"
-title = 'egercek.com'
+title = 'Programming Blog'
 theme = 'book'
 
 # Book configuration
@@ -33,6 +33,11 @@ enableGitInfo = true
   name = "Github"
   url = "https://github.com/ercang"
   weight = 10
+
+[[menu.after]]
+  name = "Linkedin"
+  url = "https://www.linkedin.com/in/ercangercek/"
+  weight = 11
 
 
 [params]
