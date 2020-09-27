@@ -1,5 +1,5 @@
 # hugo server --minify --themesDir ... --baseURL=http://0.0.0.0:1313/theme/hugo-book/
-
+googleAnalytics = "UA-93488455-11"
 #baseURL = "https://ercang.github.io/blog/"
 baseURL = "http://egercek.com/"
 title = 'Programming Blog'
