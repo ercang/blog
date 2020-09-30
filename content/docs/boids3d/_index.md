@@ -12,6 +12,8 @@ title: "Experiment with 3D Boids and JavaScript"
 
 One of my favourite algorithms is the boids. You can create a flock movement with it. It is easy to understand, and the results are visually convincing. I used it first in one of my games to mimic fleet behaviour. In that game, users were able to move their fighter aircraft with the mouse input. Using the boids algorithm make the animation smooth and believable. That game was in 2D, and I implemented it in C++, so this time, I wanted to implement it in 3D with JavaScript. Calculating many small entities is computationally heavy. On the positive side, discrete operations can be distributed to threads. In this experiment, I implemented my version of the boids algorithm and tried to optimize it using grids (3d bucket lists) and WebWorkers. You can find the source code in [The GitHub Repo](https://github.com/ercang/boids-js).
 
+**You can check out the demo by [clicking here](https://ercang.github.io/boids-js/2-boids-grids/).**
+
 ## The Implementation of The Boids
 
 The boids algorithm consists of three basic rules, alignment, cohesion and separation. Also, I added another one for entities to avoid obstacles and boundaries of the world. All of these rules work for a single entity if there is another entity within the awareness radius.
@@ -41,11 +43,11 @@ It is practically unusable after 800 boids as it drops to 30 frames per second. 
 
 ![alt text](./boids-with-grid.jpg "Example 2 - Grid is visible")
 
-Boids algorithm uses nearby entities to calculate an entity's position and velocity. E.g., if a nearby obstacle is found, an avoidance vector is calculated, or if an entity has a nearby neighbour, it tries to align with it. To speed up finding nearby entities, I used a grid system. Alternatively, an octree could be implemented as it will be more memory efficient but implementing a grid is much simpler; that's why I selected the grid system for this case.
+Boids algorithm uses nearby entities to calculate an entity's position and velocity. E.g., if a nearby obstacle is found, an avoidance vector is calculated, or if an entity has a nearby neighbour, it tries to align with it. To speed up finding nearby entities, I used a grid system. Alternatively, an octree could be implemented as it will be more memory efficient but implementing a grid is simpler; that's why I selected the grid system for this case.
 
 Basically grid system makes a three-dimensional array for the world. It is easy to find an entity's grid index from its position. If an entity needs to be moved, first the current grid is found, and then the entity is removed from that grid, and afterwards, it is added to the new grid. It is computationally very cheap to find the entities in a grid as the list is already prepared. You can find more information about spatial partitioning [here](http://gameprogrammingpatterns.com/spatial-partition.html).
 
-Implementing a grid system increased performance significantly. You can run this example from the link given below. In this example, the world is quite crowded, so if it were more sparse, the time required to compute a single iteration would increase more linearly. As the world gets crowded, the benefit of the grid reduces.
+Implementing a grid system increased performance significantly. You can run this example from the link given below. In this example, the world is quite crowded, so if it were more sparse, the time required to compute a single iteration would increase more linearly. For the best performance, entities should be distributed equally to the cells. If all entities pile up in the same cell, then there will not be any performance improvement.
 
 [Run Example 2 - Grid Support](https://ercang.github.io/boids-js/2-boids-grids/)
 
