@@ -10,7 +10,7 @@ title: "Experiment with 3D Boids and JavaScript"
 
 ## Introduction
 
-One of my favourite algorithms is the boids. You can create a flock movement with it. It is easy to understand, and the results are visually convincing. I used it first in one of my games to mimic fleet behaviour. In that game, users were able to move their fighter aircraft with the mouse input. Using the boids algorithm make the animation smooth and believable. That game was in 2D, and I implemented it in C++, so this time, I wanted to implement it in 3D with JavaScript. Calculating many small entities is computationally heavy. On the positive side, discrete operations can be distributed to threads. In this experiment, I implemented my version of the boids algorithm and tried to optimize it using grids (3d bucket lists) and WebWorkers. You can find the source code in [The GitHub Repo](https://github.com/ercang/boids-js).
+One of my favourite algorithms is [the boids](https://en.wikipedia.org/wiki/Boids). You can create a flock movement with it. It is easy to understand, and the results are visually convincing. I used it first in one of my games to mimic fleet behaviour. In that game, users were able to move their fighter aircraft with the mouse input. Using the boids algorithm make the animation smooth and believable. That game was in 2D, and I implemented it in C++, so this time, I wanted to implement it in 3D with JavaScript. Calculating many small entities is computationally heavy. On the positive side, discrete operations can be distributed to threads. In this experiment, I implemented my version of the boids algorithm and tried to optimize it using grids (3d bucket lists) and WebWorkers. You can find the source code in [The GitHub Repo](https://github.com/ercang/boids-js).
 
 **You can check out the demo by [clicking here](https://ercang.github.io/boids-js/2-boids-grids/).**
 
@@ -32,7 +32,7 @@ The blue line represents total milliseconds to compute a single iteration. The r
 
 |Example1 - Browser Thread|Example2 - Grids|Example3 - WebWorkers|
 |--------|--------|--------|
-|![alt text](./example-1-chart.jpg "Example 1 - Benchmark Results")|![alt text](./example-2-chart.jpg "Example 2 - Benchmark Results when Using Grids")|![alt text](./example-3-chart.jpg "Example 3 - Benchmark Results when Using WebWorkers")|
+|[![alt text](./example-1-chart.jpg "Example 1 - Benchmark Results")](./example-1-chart.jpg)|[![alt text](./example-2-chart.jpg "Example 2 - Benchmark Results when Using Grids")](./example-2-chart.jpg)|[![alt text](./example-3-chart.jpg "Example 3 - Benchmark Results when Using WebWorkers")](./example-3-chart.jpg)|
 
 It is practically unusable after 800 boids as it drops to 30 frames per second. Also, it is running in the browser thread, so it prevents UI to be updated. You can run this example from the link given below.
 
