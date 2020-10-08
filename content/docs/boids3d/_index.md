@@ -36,7 +36,7 @@ The blue line represents total milliseconds to compute a single iteration. The r
 
 It is practically unusable after 800 boids as it drops to 30 frames per second. Also, it is running in the browser thread, so it prevents UI to be updated. You can run this example from the link given below.
 
-[Run Example 1](https://ercang.github.io/boids-js/1-boids-simple/)
+[**Run Example 1**](https://ercang.github.io/boids-js/1-boids-simple/)
 
 
 ## Implementing Spatial Partitioning
@@ -49,7 +49,7 @@ Basically grid system makes a three-dimensional array for the world. It is easy 
 
 Implementing a grid system increased performance significantly. You can run this example from the link given below. In this example, the world is quite crowded, so if it were more sparse, the time required to compute a single iteration would increase more linearly. For the best performance, entities should be distributed equally to the cells. If all entities pile up in the same cell, then there will not be any performance improvement.
 
-[Run Example 2 - Grid Support](https://ercang.github.io/boids-js/2-boids-grids/)
+[**Run Example 2 - Grid Support**](https://ercang.github.io/boids-js/2-boids-grids/)
 
 ## Distributing the work using WebWorkers
 
@@ -70,7 +70,7 @@ In the WebWorker case, there is a small inconsistency with computing all the dat
 
 Using WebWorkers makes the simulation smoother. You can run this example from the link given below. In this example case, using four workers made the most improvement. Using multiple workers cause entity data to be copied numerous times. I think after four WebWorkers, copying the data takes most of the time, and I didn't see any performance improvement. It might be better to use SharedArrayBuffer to prevent copying data. I only implemented "object serialize" methods for the classes, so with proper implementation, SharedArrayBuffer can be used.
 
-[Run Example 3 - WebWorkers [Chrome Only]](https://ercang.github.io/boids-js/3-boids-webworkers/)
+[**Run Example 3 - WebWorkers \[Chrome Only\]**](https://ercang.github.io/boids-js/3-boids-webworkers/)
 
 **Why this example only works with Chrome?**  
 The WebWorker example only works with Chrome because Safari and Firefox do not support import statements in WebWorkers. It is usually not a problem, because using a script packer (e.g. Webpack) should merge all the source files into a single file. To keep the examples simple, I didn't use a script packer.
